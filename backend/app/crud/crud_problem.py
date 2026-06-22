@@ -11,4 +11,8 @@ class CRUDProblem(CRUDBase[Problem, ProblemCreate, ProblemUpdate]):
         result = await db.execute(select(Problem).filter(Problem.url == url))
         return result.scalars().first()
 
+    async def get_by_slug(self, db: AsyncSession, *, slug: str) -> Optional[Problem]:
+        result = await db.execute(select(Problem).filter(Problem.slug == slug))
+        return result.scalars().first()
+
 problem = CRUDProblem(Problem)

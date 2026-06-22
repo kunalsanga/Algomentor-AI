@@ -4,6 +4,7 @@ from datetime import datetime
 
 class ProblemBase(BaseModel):
     title: str
+    slug: str
     url: str
     difficulty: Optional[str] = None
     topic: Optional[str] = None
@@ -11,6 +12,7 @@ class ProblemBase(BaseModel):
     statement: Optional[str] = None
     constraints: Optional[str] = None
     examples: Optional[str] = None
+    daily_challenge: Optional[bool] = False
 
 class ProblemCreate(ProblemBase):
     pass
